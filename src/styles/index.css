@@ -73,6 +73,27 @@
     rgba(255, 255, 255, 0.95),
     rgba(171, 171, 171, 0.65)
   );
+
+  /*
+   * Glass material — from the Figma Glass settings:
+   * Light -45° at 80%, Refraction 80, Depth 17, Dispersion 50, Frost 3.4,
+   * Splay 0. Frost maps to backdrop blur; the -45° light becomes a
+   * top-left inset rim highlight; depth becomes the outer shadow.
+   * Refraction/dispersion have no CSS equivalent (approximated with a
+   * slight saturation lift).
+   */
+  --glass-frost: 3.4px;
+  --glass-fill: rgba(250, 250, 250, 0.35);
+  --glass-rim: inset 0.75px 0.75px 0.5px rgba(255, 255, 255, 0.8),
+    inset -0.5px -0.5px 0.5px rgba(255, 255, 255, 0.25);
+  --glass-depth: 0px 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.glass {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-frost)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--glass-frost)) saturate(1.4);
+  box-shadow: var(--glass-rim), var(--glass-depth);
 }
 
 body {

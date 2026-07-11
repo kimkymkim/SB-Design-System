@@ -19,7 +19,7 @@ export function Pill({ variant = "outline", children, className = "", ...rest }:
   const variants: Record<string, string> = {
     outline: "rounded-full border border-border-subtle bg-transparent",
     cream: "rounded-full bg-cream shadow-photo",
-    glass: "rounded-full bg-scrim backdrop-blur-md",
+    glass: "glass rounded-full",
     square:
       "rounded-none border border-transparent [background:linear-gradient(var(--color-paper),var(--color-paper))_padding-box,var(--gradient-stroke)_border-box]",
   };

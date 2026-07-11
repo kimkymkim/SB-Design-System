@@ -23,7 +23,7 @@ type MenuProps = {
 export function Menu({ items, width = 250, className = "" }: MenuProps) {
   return (
     <div
-      className={`overflow-hidden rounded-[13px] bg-scrim shadow-sheet backdrop-blur-xl ${className}`}
+      className={`glass overflow-hidden rounded-[13px] ${className}`}
       style={{ width }}
       role="menu"
     >
