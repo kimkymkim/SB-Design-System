@@ -80,7 +80,7 @@ exported as SVGs from the Figma file.
 The Figma file uses **Google Sans Flex**, which is proprietary to Google. Agreed
 open-licensed stand-ins are bundled in `public/fonts/`:
 
-- UI: **DM Sans** (closest open match)
+- UI: **Figtree** (closest open match to Google Sans)
 - Script titles: **Beth Ellen**
 
 To swap in licensed Google Sans later, replace the font file and update

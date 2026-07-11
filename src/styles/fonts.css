@@ -1,17 +1,17 @@
 /*
  * Agreed fallback fonts (open-licensed stand-ins for the Figma file's
  * proprietary Google Sans Flex):
- *   UI     → DM Sans
- *   Script → Beth Ellen (handwritten artwork titles)
+ *   UI     → Figtree (closest visual match to Google Sans)
+ *   Script → Beth Ellen (handwritten journal-entry titles)
  * To swap in licensed Google Sans later, replace the file and update
  * --font-sans in index.css — nothing else changes.
  */
 @font-face {
-  font-family: "DM Sans";
+  font-family: "Figtree";
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 300 900;
   font-display: swap;
-  src: url("/fonts/7dec47d2.woff2") format("woff2");
+  src: url("/fonts/figtree.woff2") format("woff2");
 }
 
 @font-face {
