@@ -5,6 +5,8 @@ type InfoCardProps = {
   created: string;
   notes: string;
   palette?: string[];
+  /** Saved art-history findings, appended after the Learn flow */
+  history?: string;
   className?: string;
 };
 
@@ -12,7 +14,7 @@ type InfoCardProps = {
  * Artwork detail card: script title, then Created / Notes / Palette rows
  * on the lavender surface.
  */
-export function InfoCard({ title, created, notes, palette, className = "" }: InfoCardProps) {
+export function InfoCard({ title, created, notes, palette, history, className = "" }: InfoCardProps) {
   return (
     <div className={`w-full rounded-sheet bg-lavender px-6 py-6 ${className}`}>
       <h2 className="font-script text-[30px] leading-[36px] text-ink">“{title}”</h2>
@@ -31,6 +33,12 @@ export function InfoCard({ title, created, notes, palette, className = "" }: Inf
             <PaletteDots colors={palette} size={24} direction="horizontal" />
           </dd>
         </div>
+        {history && (
+          <div>
+            <dt className="inline font-bold">Art History (from your work): </dt>
+            <dd className="inline">{history}</dd>
+          </div>
+        )}
       </dl>
     </div>
   );

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Pencil, Share, Trash2, Plus, ChevronLeft, ImagePlus, BookOpen, Palette } from "lucide-react";
+import { Pencil, Share, Trash2, Plus, ChevronLeft, ImagePlus, BookOpen, Palette, CalendarDays, Rows3 } from "lucide-react";
 import { useState } from "react";
 import {
   Avatar,
@@ -8,6 +8,7 @@ import {
   EntryForm,
   Fab,
   FloatingSheet,
+  HistoryCard,
   InfoCard,
   LearnCard,
   Link,
@@ -17,13 +18,17 @@ import {
   Pill,
   RiverBackground,
   SheetHeader,
+  Shimmer,
+  SideRail,
   Sketchbook,
   StatusBar,
+  StatusCard,
+  StatusCardThumb,
   TextArea,
   TextField,
   TopNav,
 } from "./components";
-import { PhoneFrame, TimelineScreen, WelcomeScreen, DetailScreen } from "./templates";
+import { DesktopCanvas, PhoneFrame, TimelineScreen, WelcomeScreen, DetailScreen } from "./templates";
 
 const spacingScale = [4, 8, 12, 16, 24, 32, 48, 64];
 
@@ -71,6 +76,17 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       </h2>
       {children}
     </section>
+  );
+}
+
+function ShimmerDemo() {
+  const [active, setActive] = useState(true);
+  return (
+    <button onClick={() => setActive(!active)} className="cursor-pointer focus-visible:outline-none" aria-label="Toggle shimmer">
+      <Shimmer active={active} className="rounded-photo">
+        <Avatar width={200} height={220} />
+      </Shimmer>
+    </button>
   );
 }
 
@@ -234,6 +250,42 @@ export default function App() {
             <Pill variant="cream">Add work</Pill>
             <p className="text-[11px] text-ink/50">cream</p>
           </div>
+          <div className="flex flex-col items-center gap-2">
+            <Pill variant="square" script>Pink House</Pill>
+            <p className="text-[11px] text-ink/50">square + script caption</p>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Status & History Cards">
+        <div className="flex w-[420px] flex-col gap-5">
+          <StatusCard thumbnail={<StatusCardThumb />}>Observing your brush strokes</StatusCard>
+          <HistoryCard title="About your work" actionLabel="Save">
+            <strong>Dutch tulip painting tradition</strong> — the flower itself looks like a
+            “broken” parrot tulip, the feathered, flame-streaked petals that{" "}
+            <strong>Dutch Golden Age</strong> painters obsessively rendered during and after{" "}
+            <strong>Tulipomania</strong>.
+          </HistoryCard>
+        </div>
+      </Section>
+
+      <Section title="Shimmer — art being read">
+        <ShimmerDemo />
+        <p className="mt-3 text-[13px] text-ink/60">
+          Bloom + light sweep while art history is read from the piece (from the Figma Learn
+          flow). Click to toggle. Pass an SVG outline via <code>trace</code> for the full
+          edge-glow on known artwork.
+        </p>
+      </Section>
+
+      <Section title="Side Rail — desktop">
+        <div className="rounded-3xl bg-canvas p-8">
+          <SideRail
+            actions={[
+              { icon: <Rows3 size={22} strokeWidth={1.6} />, label: "List view" },
+              { icon: <CalendarDays size={22} strokeWidth={1.6} />, label: "Calendar view" },
+            ]}
+          />
         </div>
       </Section>
 
@@ -358,6 +410,14 @@ export default function App() {
             />
           </PhoneFrame>
         </div>
+      </Section>
+
+      <Section title="Desktop Canvas — interactive Learn flow">
+        <p className="mb-4 text-[13px] text-ink/60">
+          Open “The Toulippe” (top entry), press Learn: the artwork shimmers while brush strokes
+          are observed, then the art history appears — Save appends it to the entry.
+        </p>
+        <DesktopCanvas />
       </Section>
     </main>
   );
