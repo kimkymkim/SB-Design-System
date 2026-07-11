@@ -1,20 +1,37 @@
 import type { ReactNode } from "react";
+import { Pencil, Share, Trash2, Plus, ChevronLeft, ImagePlus, BookOpen, Palette } from "lucide-react";
 import {
   Avatar,
   Button,
   EntryCard,
+  EntryForm,
   Fab,
   FloatingSheet,
   InfoCard,
   LearnCard,
   Link,
   Menu,
+  MonthLabel,
   PaletteDots,
   Pill,
+  RiverBackground,
   SheetHeader,
   StatusBar,
+  TextArea,
+  TextField,
   TopNav,
 } from "./components";
+import { PhoneFrame, TimelineScreen, WelcomeScreen, DetailScreen } from "./templates";
+
+const spacingScale = [4, 8, 12, 16, 24, 32, 48, 64];
+
+const motionTokens = [
+  ["fast — 150ms", "taps, hovers"],
+  ["medium — 300ms", "card expansion, menus"],
+  ["slow — 500ms", "sheet presentation"],
+  ["float — 6s", "entry-card bob"],
+  ["river — 28–36s", "background drift"],
+] as const;
 
 const neutrals = [
   ["Ink (black)", "var(--color-ink)", "#0D0D0D"],
@@ -98,6 +115,61 @@ export default function App() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title="Spacing — 4/8px rhythm">
+        <div className="flex items-end gap-4">
+          {spacingScale.map((px) => (
+            <div key={px} className="flex flex-col items-center gap-1">
+              <div className="w-8 rounded-sm bg-lavender" style={{ height: px }} />
+              <p className="text-[11px] text-ink/50">{px}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Motion">
+        <div className="flex flex-wrap gap-6">
+          {motionTokens.map(([name, usage]) => (
+            <div key={name} className="w-44">
+              <p className="text-[13px] font-medium">{name}</p>
+              <p className="text-[12px] text-ink/50">{usage}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-[13px] text-ink/60">
+          Easings: standard <code>cubic-bezier(0.2,0,0,1)</code>, decelerate{" "}
+          <code>cubic-bezier(0,0,0.2,1)</code>, spring <code>cubic-bezier(0.34,1.56,0.64,1)</code>.
+          See the Timeline template below for float / tap-expand / sheet presentation.
+        </p>
+      </Section>
+
+      <Section title="Iconography — Lucide">
+        <div className="flex items-center gap-6 text-ink">
+          <Plus size={20} strokeWidth={1.8} />
+          <ChevronLeft size={20} strokeWidth={1.8} />
+          <Pencil size={20} strokeWidth={1.8} />
+          <Share size={20} strokeWidth={1.8} />
+          <Trash2 size={20} strokeWidth={1.8} />
+          <ImagePlus size={20} strokeWidth={1.8} />
+          <BookOpen size={20} strokeWidth={1.8} />
+          <Palette size={20} strokeWidth={1.8} />
+        </div>
+        <p className="mt-3 text-[13px] text-ink/60">
+          Open-licensed stroke icons standing in for SF Symbols (which are Apple-platform only).
+          Brand-specific marks: export SVGs from the Figma file.
+        </p>
+      </Section>
+
+      <Section title="River Background">
+        <RiverBackground className="h-64 rounded-3xl border border-border-subtle">
+          <div className="p-6">
+            <MonthLabel>July 2026</MonthLabel>
+          </div>
+        </RiverBackground>
+        <p className="mt-3 text-[13px] text-ink/60">
+          Three watercolor washes drifting slowly (28–36s). Honors prefers-reduced-motion.
+        </p>
       </Section>
 
       <Section title="Typography">
@@ -197,10 +269,10 @@ export default function App() {
           </FloatingSheet>
           <Menu
             items={[
-              { label: "Add work", symbol: "＋" },
-              { label: "Edit entry" },
-              { label: "Share…" },
-              { label: "Delete", destructive: true },
+              { label: "Add work", symbol: <Plus size={16} strokeWidth={1.8} /> },
+              { label: "Edit entry", symbol: <Pencil size={16} strokeWidth={1.8} /> },
+              { label: "Share…", symbol: <Share size={16} strokeWidth={1.8} /> },
+              { label: "Delete", destructive: true, symbol: <Trash2 size={16} strokeWidth={1.8} /> },
             ]}
           />
         </div>
@@ -221,10 +293,49 @@ export default function App() {
         </div>
       </Section>
 
+      <Section title="Inputs">
+        <div className="flex w-[340px] flex-col gap-4">
+          <TextField label="Title" placeholder="“The Toulippe”" />
+          <TextField label="Date" type="date" />
+          <TextArea label="Notes" placeholder="Where were you? What sparked it?" />
+        </div>
+      </Section>
+
+      <Section title="Entry Input Sheet">
+        <EntryForm />
+      </Section>
+
       <Section title="Navigation">
         <div className="w-[393px] rounded-3xl border border-border-subtle bg-paper">
           <StatusBar />
           <TopNav title="July 7, 2026" rightLabel="Edit" />
+        </div>
+      </Section>
+
+      <Section title="Screen Templates">
+        <p className="mb-6 text-[13px] text-ink/60">
+          The Timeline is interactive: entries float in place; tap one to see it expand and
+          present the detail sheet. The + button opens the entry input sheet.
+        </p>
+        <div className="flex flex-wrap gap-10">
+          <PhoneFrame label="Welcome">
+            <WelcomeScreen />
+          </PhoneFrame>
+          <PhoneFrame label="Timeline — interactive">
+            <TimelineScreen />
+          </PhoneFrame>
+          <PhoneFrame label="Detail">
+            <DetailScreen
+              entry={{
+                id: "toulippe",
+                date: "July 7, 2026",
+                tag: "“bookshop”",
+                title: "The Toulippe",
+                notes:
+                  "In a bookshop while observing some flowers and what if some where combined together?",
+              }}
+            />
+          </PhoneFrame>
         </div>
       </Section>
     </main>

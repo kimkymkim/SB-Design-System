@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type MenuItemSpec = {
   label: string;
-  /** Optional trailing symbol/icon */
+  /** Optional trailing symbol/icon (e.g. a lucide icon) */
   symbol?: ReactNode;
   onSelect?: () => void;
   destructive?: boolean;
@@ -32,7 +32,7 @@ export function Menu({ items, width = 250, className = "" }: MenuProps) {
           key={item.label}
           role="menuitem"
           onClick={item.onSelect}
-          className={`flex h-11 w-full items-center justify-between px-4 text-left font-sans text-[15px] ${
+          className={`flex h-11 w-full items-center justify-between px-4 text-left font-sans text-[15px] transition-colors duration-(--motion-fast) hover:bg-ink/5 focus-visible:bg-ink/5 focus-visible:outline-none active:bg-ink/10 ${
             item.destructive ? "text-red-600" : "text-ink"
           } ${i > 0 ? "border-t border-ink/10" : ""}`}
         >

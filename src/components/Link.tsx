@@ -11,7 +11,7 @@ type LinkProps = {
 export function Link({ children, className = "", ...rest }: LinkProps) {
   return (
     <a
-      className={`cursor-pointer font-sans text-[15px] tracking-[-0.36px] text-ink underline decoration-solid [text-underline-position:from-font] ${className}`}
+      className={`cursor-pointer rounded-sm font-sans text-[15px] tracking-[-0.36px] text-ink underline decoration-solid transition-opacity duration-(--motion-fast) [text-underline-position:from-font] hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 active:opacity-50 ${className}`}
       {...rest}
     >
       {children}
