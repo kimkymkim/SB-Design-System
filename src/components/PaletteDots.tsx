@@ -1,30 +1,35 @@
-const defaultColors = [
-  "var(--color-palette-pink)",
-  "var(--color-palette-cream)",
-  "var(--color-palette-leaf)",
-  "var(--color-palette-forest)",
+const placeholderColors = [
+  "var(--color-grey-200)",
+  "var(--color-grey-300)",
+  "var(--color-grey-400)",
+  "var(--color-grey-500)",
 ];
 
 type PaletteDotsProps = {
-  /** CSS colors of the artwork's palette, top-to-bottom / left-to-right */
+  /**
+   * Colors sampled from the uploaded artwork image. Until an image is
+   * provided, neutral grey placeholders are shown.
+   */
   colors?: string[];
-  /** Dot diameter in px (Figma: 28 vertical stack, 24 inline row) */
+  /** Dot diameter in px — 32 max, smaller is fine */
   size?: number;
   direction?: "vertical" | "horizontal";
   className?: string;
 };
 
 /**
- * Overlapping color-dot stack shown beside each artwork
- * (dots overlap by 25% of their diameter, matching Figma's 21px step on 28px dots).
+ * Overlapping color-dot stack beside each artwork. The dots are plain
+ * circles (≤32px) whose colors come from the uploaded image; they
+ * overlap by 25% of their diameter.
  */
 export function PaletteDots({
-  colors = defaultColors,
-  size = 28,
+  colors = placeholderColors,
+  size = 32,
   direction = "vertical",
   className = "",
 }: PaletteDotsProps) {
-  const overlap = -size * 0.25;
+  const dotSize = Math.min(size, 32);
+  const overlap = -dotSize * 0.25;
   return (
     <div
       className={`flex w-fit ${direction === "vertical" ? "flex-col" : "flex-row"} ${className}`}
@@ -36,8 +41,8 @@ export function PaletteDots({
           key={i}
           className="rounded-full"
           style={{
-            width: size,
-            height: size,
+            width: dotSize,
+            height: dotSize,
             backgroundColor: color,
             marginTop: direction === "vertical" && i > 0 ? overlap : 0,
             marginLeft: direction === "horizontal" && i > 0 ? overlap : 0,

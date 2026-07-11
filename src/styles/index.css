@@ -12,9 +12,18 @@
     "Helvetica Neue", Arial, sans-serif;
   --font-script: "Beth Ellen", "Snell Roundhand", cursive;
 
-  /* Colors */
-  --color-ink: #090909;
+  /* Colors — neutrals */
+  --color-ink: #0d0d0d; /* primary black */
+  --color-ink-2: #323232; /* second black */
   --color-paper: #ffffff;
+  --color-white-soft: #fafafa;
+  --color-grey-100: #f1f1f1;
+  --color-grey-200: #e4e4e4;
+  --color-grey-300: #d0d0d0;
+  --color-grey-400: #ababab;
+  --color-grey-500: #8f8f8f;
+  --color-grey-600: #6f6f6f;
+  --color-grey-700: #545454;
   --color-cream: #f8f3cd; /* approx */
   --color-lavender: #eaecf9; /* approx */
   --color-border-subtle: #e8e8e8;
@@ -38,6 +47,18 @@
     0px 0.75px 2.25px rgba(0, 0, 0, 0.3);
   --shadow-elevation-4: 0px 2px 3px rgba(0, 0, 0, 0.3),
     0px 6px 10px 4px rgba(0, 0, 0, 0.15);
+}
+
+/*
+ * Gradient stroke for the square (no-glass) label variant.
+ * Approximated — replace with the exact gradient from the Figma file.
+ */
+:root {
+  --gradient-stroke: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(171, 171, 171, 0.65)
+  );
 }
 
 body {

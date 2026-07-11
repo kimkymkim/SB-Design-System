@@ -1,3 +1,4 @@
+export { Avatar } from "./Avatar";
 export { Button } from "./Button";
 export { Pill } from "./Pill";
 export { PaletteDots } from "./PaletteDots";
@@ -6,5 +7,7 @@ export { FloatingSheet, SheetHeader } from "./FloatingSheet";
 export { InfoCard } from "./InfoCard";
 export { LearnCard } from "./LearnCard";
 export { Fab } from "./Fab";
+export { Link } from "./Link";
+export { Menu, type MenuItemSpec } from "./Menu";
 export { TopNav } from "./TopNav";
 export { StatusBar } from "./StatusBar";
