@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+/*
+ * SB Design System tokens — mirrors tokens/tokens.json.
+ * Values extracted from the Sketchbook Figma file; colors marked
+ * "approx" were sampled from screenshots and may need truing up.
+ */
+@theme {
+  /* Fonts */
+  --font-sans: "Google Sans Flex", "Google Sans", "DM Sans", -apple-system,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-script: "Beth Ellen", "Snell Roundhand", cursive;
+
+  /* Colors */
+  --color-ink: #090909;
+  --color-paper: #ffffff;
+  --color-cream: #f8f3cd; /* approx */
+  --color-lavender: #eaecf9; /* approx */
+  --color-border-subtle: #e8e8e8;
+  --color-border-strong: #c0c0c0;
+  --color-scrim: rgba(249, 249, 249, 0.74);
+  --color-palette-pink: #f1a7b5; /* approx */
+  --color-palette-cream: #f6f1c6; /* approx */
+  --color-palette-leaf: #9cbf8e; /* approx */
+  --color-palette-forest: #35571f; /* approx */
+
+  /* Radii */
+  --radius-backdrop: 8px;
+  --radius-photo: 24px;
+  --radius-sheet: 24px;
+
+  /* Shadows */
+  --shadow-sheet: 0px 4px 5.5px rgba(0, 0, 0, 0.25);
+  --shadow-button: 0px 7px 5.5px rgba(0, 0, 0, 0.15),
+    0px 3.5px 2px rgba(0, 0, 0, 0.3);
+  --shadow-photo: 0px 3px 6px 2.25px rgba(0, 0, 0, 0.15),
+    0px 0.75px 2.25px rgba(0, 0, 0, 0.3);
+  --shadow-elevation-4: 0px 2px 3px rgba(0, 0, 0, 0.3),
+    0px 6px 10px 4px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
