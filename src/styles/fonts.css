@@ -1,10 +1,9 @@
 /*
- * Agreed fallback fonts (open-licensed stand-ins for the Figma file's
- * proprietary Google Sans Flex):
- *   UI     → Figtree (closest visual match to Google Sans)
- *   Script → Beth Ellen (handwritten journal-entry titles)
- * To swap in licensed Google Sans later, replace the file and update
- * --font-sans in index.css — nothing else changes.
+ * Fonts:
+ *   UI     → Figtree (open stand-in for the file's proprietary Google
+ *            Sans Flex; swap the file + --font-sans when licensed)
+ *   Script → Homemade Apple — the EXACT font the Figma file uses for
+ *            journal-entry titles (free, Google Fonts)
  */
 @font-face {
   font-family: "Figtree";
@@ -15,9 +14,9 @@
 }
 
 @font-face {
-  font-family: "Beth Ellen";
+  font-family: "Homemade Apple";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/beth-ellen.woff2") format("woff2");
+  src: url("/fonts/homemade-apple.woff2") format("woff2");
 }

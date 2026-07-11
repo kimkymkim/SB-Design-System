@@ -10,7 +10,7 @@
   /* Fonts */
   --font-sans: "Google Sans Flex", "Google Sans", "Figtree", -apple-system,
     "Helvetica Neue", Arial, sans-serif;
-  --font-script: "Beth Ellen", "Snell Roundhand", cursive;
+  --font-script: "Homemade Apple", "Snell Roundhand", cursive;
 
   /* Colors — neutrals */
   --color-ink: #0d0d0d; /* primary black */
@@ -25,7 +25,10 @@
   --color-grey-600: #6f6f6f;
   --color-grey-700: #545454;
   --color-cream: #f8f3cd; /* approx */
-  --color-lavender: #eaecf9; /* approx */
+  --color-lavender: #f3f5ff; /* from Figma (desktop detail sheet) */
+  --color-rail: #f5f5f5; /* desktop side-rail fill (from Figma) */
+  --color-rail-border: #f0eded; /* desktop side-rail hairline (from Figma) */
+  --color-card-border: #f4f4f4; /* white card hairline (from Figma) */
   --color-border-subtle: #e8e8e8;
   --color-border-strong: #c0c0c0;
   --color-scrim: rgba(249, 249, 249, 0.74);
