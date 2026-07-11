@@ -13,6 +13,7 @@ export { PaletteDots } from "./PaletteDots";
 export { Pill } from "./Pill";
 export { RiverBackground } from "./RiverBackground";
 export { Sheet } from "./Sheet";
+export { Sketchbook } from "./Sketchbook";
 export { StatusBar } from "./StatusBar";
 export { TextArea, TextField } from "./TextField";
 export { TopNav } from "./TopNav";

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Pencil, Share, Trash2, Plus, ChevronLeft, ImagePlus, BookOpen, Palette } from "lucide-react";
+import { useState } from "react";
 import {
   Avatar,
   Button,
@@ -16,6 +17,7 @@ import {
   Pill,
   RiverBackground,
   SheetHeader,
+  Sketchbook,
   StatusBar,
   TextArea,
   TextField,
@@ -69,6 +71,17 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       </h2>
       {children}
     </section>
+  );
+}
+
+function SketchbookDemo() {
+  const [state, setState] = useState<"closed" | "open">("closed");
+  return (
+    <Sketchbook
+      state={state}
+      width={150}
+      onClick={() => setState(state === "closed" ? "open" : "closed")}
+    />
   );
 }
 
@@ -252,6 +265,14 @@ export default function App() {
           <EntryCard date="July 7, 2026" tag="“bookshop”" />
           <EntryCard date="July 1, 2026" tag="audio visual" />
         </div>
+      </Section>
+
+      <Section title="Sketchbook — key brand asset">
+        <SketchbookDemo />
+        <p className="mt-3 text-[13px] text-ink/60">
+          Click to animate closed ↔ open. Placeholder art until the real exports land in{" "}
+          <code>public/assets/</code> (see the README there).
+        </p>
       </Section>
 
       <Section title="Floating Sheet + Menu">
