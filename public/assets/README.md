@@ -1,13 +1,12 @@
 # Brand assets
 
-Upload the two key sketchbook exports from Figma here (PNG @2x or SVG):
+The two key sketchbook exports from the Figma file, used and animated by
+the `Sketchbook` component:
 
 | File | What it is |
 |---|---|
-| `sketchbook-closed.png` | Closed red sketchbook with stickers (welcome screen 1) |
-| `sketchbook-open.png` | Open sketchbook spread (welcome screen 2) |
+| `sketchbook.svg` | Closed red sketchbook with stickers (tilt + shadow baked in) |
+| `openbook.svg` | Open sketchbook spread |
 
-The `Sketchbook` component picks them up via its `closedSrc` / `openSrc`
-props (`/assets/sketchbook-closed.png`, `/assets/sketchbook-open.png`) and
-animates between the two states. Placeholder art renders until these files
-exist.
+The component uses them by default; override with its `closedSrc` /
+`openSrc` props if variants are ever needed.
