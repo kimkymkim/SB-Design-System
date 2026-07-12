@@ -38,7 +38,7 @@ export function DesktopCanvas() {
   const close = () => setFlow("closed");
 
   return (
-    <div className="relative h-[720px] w-full overflow-hidden rounded-3xl border border-border-subtle bg-canvas">
+    <div className="paper relative h-[720px] w-full overflow-hidden rounded-3xl border border-border-subtle">
       <SideRail
         className="absolute left-5 top-8"
         actions={[

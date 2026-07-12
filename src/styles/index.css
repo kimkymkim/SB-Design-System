@@ -108,6 +108,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ---- Desktop canvas: paper texture over the canvas grey ---- */
+
+.paper {
+  background-color: var(--color-canvas);
+  background-image: url("/assets/Texturelabs_Paper_234S 1.svg");
+  background-size: cover;
+  background-position: center;
+}
+
 /* ---- River background: slow-drifting watercolor gradient ---- */
 
 .river-base {
