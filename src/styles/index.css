@@ -112,9 +112,9 @@ body {
 
 .paper {
   background-color: var(--color-canvas);
-  background-image: url("/assets/Texturelabs_Paper_234S 1.svg");
-  background-size: cover;
-  background-position: center;
+  background-image: url("/assets/Texturelabs_Paper_234L.jpg");
+  background-repeat: repeat;
+  background-size: 900px auto;
 }
 
 /* ---- River background: slow-drifting watercolor gradient ---- */
