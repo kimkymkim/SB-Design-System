@@ -314,8 +314,13 @@ export default function App() {
 
       <Section title="Entry Card">
         <div className="flex flex-wrap gap-10">
-          <EntryCard date="July 7, 2026" tag="“bookshop”" />
-          <EntryCard date="July 1, 2026" tag="audio visual" />
+          <EntryCard date="July 7, 2026" title="The Toulippe" note="bookshop" />
+          <EntryCard
+            date="July 1, 2026"
+            title="Riverline"
+            note="audio visual"
+            palette={["#F1A7B5", "#9CBF8E", "#4C7D4C", "#F3F3DC"]}
+          />
         </div>
       </Section>
 

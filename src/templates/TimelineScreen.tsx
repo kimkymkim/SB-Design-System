@@ -88,7 +88,14 @@ export function TimelineScreen() {
                 : "drop-shadow-none hover:scale-[1.02]"
             }`}
           >
-            <EntryCard date={entry.date} tag={entry.tag} src={entry.src} palette={entry.palette} />
+            <EntryCard
+              date={entry.date}
+              title={entry.title}
+              note={entry.tag}
+              src={entry.src}
+              palette={entry.palette}
+              className="scale-[0.72] origin-top-left"
+            />
           </button>
         </div>
       ))}

@@ -50,14 +50,14 @@ export function DesktopCanvas() {
       {/* floating entries */}
       <div className="float-gentle absolute left-[150px] top-[40px]">
         <button onClick={() => setFlow("info")} aria-label="Open The Toulippe" className="cursor-pointer transition-transform duration-(--motion-medium) ease-(--ease-spring) hover:scale-[1.02] focus-visible:outline-none">
-          <EntryCard date="July 7, 2026" tag="“bookshop”" />
+          <EntryCard date="July 7, 2026" title="The Toulippe" note="bookshop" />
         </button>
       </div>
       <div className="float-gentle absolute left-[420px] top-[220px]" style={{ animationDelay: "1.6s" }}>
-        <EntryCard date="July 1, 2026" tag="audio visual" />
+        <EntryCard date="July 1, 2026" title="Riverline" note="audio visual" />
       </div>
       <div className="float-gentle absolute left-[180px] top-[400px]" style={{ animationDelay: "3s" }}>
-        <EntryCard date="July 2, 2026" tag="Travel" />
+        <EntryCard date="July 2, 2026" title="Ebi stamps" note="Travel" />
       </div>
 
       {/* script caption + sketchbook anchor */}
